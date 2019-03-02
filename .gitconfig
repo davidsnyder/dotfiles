@@ -1,2 +1,8 @@
-[color]
-	ui = true
+[core]
+	editor = /usr/local/bin/emacsclient
+[user]
+	name = David Snyder
+	email = davidsnyder@utexas.edu
+
+[includeIf "gitdir:~/Development/jask/"]
+    path = ~/Development/jask/.gitconfig
