@@ -3,11 +3,14 @@
 ;; generate TAGS file
 ;;fd .go -E debug-files/ | xargs etags
 
-;; don't create lockfiles
-(setq create-lockfiles nil)
-
 ;; global shortcuts
 (global-set-key (kbd "C-x C-k") 'kill-buffer-and-window)
+
+;; disable auto-save and auto-backup
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+;; don't create lockfiles
+(setq create-lockfiles nil)
 
 ;; refresh open buffers periodically
 (global-auto-revert-mode t)

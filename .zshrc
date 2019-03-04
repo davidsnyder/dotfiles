@@ -1,6 +1,9 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="${HOME}/.oh-my-zsh"
 
+#load RBenv
+eval "$(rbenv init -)"
+
 # Go development
 export GOPATH="${HOME}/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
