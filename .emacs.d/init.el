@@ -1,5 +1,21 @@
 ;; init.el
 
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;; Bootstrap 'use-package'
+;;(eval-after-load 'gnutls
+;;  '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)
+(setq use-package-always-ensure t)
+
 ;; generate TAGS file
 ;;fd .go -E debug-files/ | xargs etags
 
@@ -70,6 +86,10 @@
 
 ;; navigate between buffers using Shift-Arrow Key
 (windmove-default-keybindings)
+
+;;(use-package ensime
+;;  :hook (scala-mode . ensime)
+;;  :config (setq ensime-startup-notification nil))
 			                      
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -84,7 +104,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (groovy-mode zenburn-theme dimmer multi-term go-mode)))
+    (elpy use-package yaml-mode ensime scala-mode groovy-mode zenburn-theme dimmer multi-term go-mode)))
  '(term-bind-key-alist
    (quote
     (("C-c C-c" . term-interrupt-subjob)
